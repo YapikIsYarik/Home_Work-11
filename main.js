@@ -1,16 +1,14 @@
-const container = document.querySelector('.container')
-function randomColor() {
-   return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`
-}
+
+randomColor = () => (`rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`)
+
 function generateBlocks() {
    for (let i = 0; i < 25; i++) {
       let square = document.createElement('div');
       square.classList.add('square')
       square.style.backgroundColor = randomColor();
-      container.appendChild(square)
+      document.querySelector('.container').appendChild(square)
    }
 }
-
 function generateBlocksInterval() {
    generateBlocks()
    setInterval(() => {
@@ -20,4 +18,3 @@ function generateBlocksInterval() {
    }, 1000)
 }
 generateBlocksInterval();
-
